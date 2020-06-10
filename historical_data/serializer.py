@@ -2,11 +2,12 @@ from rest_framework import serializers
 
 from .models import *
 
-class DistrictSerializer(serializers.ModelSerializer):
-    #json = serializers.SerializerMethodField('clean_json')
-    #fields = ['Id', 'DistrictName']
+class PriceHistorySerializer(serializers.ModelSerializer):
     class Meta:
         model = PriceHistory
-        fields = ('price', 'volume')
+        fields = ['id','price', 'volume', 'created_at']
+
+
+
 
 
