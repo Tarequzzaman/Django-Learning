@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'historical_data',
+    'otherdbapp'
 ]
 
 MIDDLEWARE = [
@@ -89,9 +90,21 @@ DATABASES = {
             'CHARSET': 'utf8mb4',
             'COLLATION': 'utf8mb4_unicode_ci',
         }
+    }, 
+    'another':{
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mydb',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': '127.0.0.1',   # Or an IP Address that your DB is hosted on
+        'PORT': 3306,
+        'OPTIONS': {
+            'charset': 'utf8mb4',
+        },
     }
 }
 
+DATABASE_ROUTERS = ['otherdbapp.router.OtherAppDB',]
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators

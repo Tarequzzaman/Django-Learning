@@ -50,7 +50,6 @@ def update(requests):
 
 def create_user(requests):
     try:
-
         first_name = requests.GET.get("first_name")
         last_name = requests.GET.get("last_name")
         phone =  requests.GET.get('phone')
