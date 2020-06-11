@@ -19,5 +19,5 @@ from django.contrib import admin
 urlpatterns = [
   #url(r'^admin/', admin.site.urls),
       url(r'^data/', include('historical_data.urls')),
-
+      url(r'^otherdb/', include('otherdbapp.urls'))
 ]
