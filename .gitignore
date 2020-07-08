@@ -1,0 +1,4 @@
+__pycache__/
+testDjango/__pycache__/*
+historical_data/__pycache__/*
+otherdbapp/__pycache__/*
