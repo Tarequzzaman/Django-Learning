@@ -4,7 +4,7 @@ import unittest
 
 from django.test import Client, RequestFactory
 from unittest.mock import patch
-from .views import create_user, get_user
+from .views import create_user, get_user, get_id
 from django.urls import reverse
 
 # Create your tests here.
@@ -26,6 +26,13 @@ class TestView(unittest.TestCase):
         client = Client()
         response= client.get(reverse(get_user))
         self.assertEqual(response.status_code, 450)
+
+
+    def test_get_id(self):
+        ion = get_id(100)
+        self.assertEqual(ion, 100)
+
+
 
 
 
