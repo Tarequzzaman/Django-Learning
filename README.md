@@ -60,7 +60,7 @@ def get_user(requests):
 class TestView(unittest.TestCase):
     def test_create_users(self):
         client = Client()
-        response= client.get(reverse(create_user), {'first_name': 'john', 'last_name': 'smith', 'phone': "01838198104", 'email': "tareqcse12@gmail.com"})
+        response= client.get(reverse(create_user), {'first_name': 'john', 'last_name': 'smith', 'phone': "......", 'email': "/........."})
         self.assertEqual(response.status_code, 200)
 
     def test_get_user(self):
