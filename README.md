@@ -1,18 +1,19 @@
 <h2>MultipleDB</h2>
-1. Deault 
+1. Deault <br>
 
-2. another
+2. another <br>
 
-3. MongoDB
-   Steps: 
+3. MongoDB<br>
+   Steps: <br>
 
-   - For mongodb we have to create an app **mongoDBWork**
-   - install djongo for MongoDB engine 
-           ```
-              pip install djongo
+   - For mongodb we have to create an app **mongoDBWork**<br>
 
-           ```
-   - Add Db engine on setting.py
+   - install djongo for MongoDB engine <br>
+
+           `pip install djongo`
+
+   - Add Db engine on setting.py<br>
+
          ```python
             .
             .   
@@ -25,15 +26,16 @@
             }
 
          ```
-    - Since it is not default Database we Have to add DATABASE_ROUTERS for this DB
+    - Since it is not default Database we Have to add DATABASE_ROUTERS for this DB<br>
+
         ```python 
            DATABASE_ROUTERS = ['otherdbapp.router.OtherAppDB',"mongoDBwork.router.MongoDBRouter"]
         ```
         Description of DATABASE_ROUTERS:<br>
-        mongoDBwork : App Name
-        router : router.py file inser
-        MongoDBRouter: class name on the router.py file 
-        Please have a look on router.py file 
+        mongoDBwork : App Name<br>
+        router : router.py file inser<br>
+        MongoDBRouter: class name on the router.py file <br>
+        Please have a look on router.py file <br>
 
 
 
