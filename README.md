@@ -1,4 +1,5 @@
 <h2>MultipleDB</h2>
+<br>
 1. Deault <br>
 
 2. another <br>
@@ -12,23 +13,19 @@
 
    - install djongo for MongoDB engine <br>
 
-          ```
-           pip install djongo
            ```
+               pip install djongo
+           ```   
 
    - Add Db engine on setting.py<br>
 
          ```python
-            .
-            .   
-            }
             'mongo':{
                 "ENGINE": "djongo",
                 "NAME": "local",
                 'HOST': '127.0.0.1',
                 'PORT': 27017,
             }
-
          ```
     - Since it is not default Database we Have to add DATABASE_ROUTERS for this DB<br>
 
