@@ -21,12 +21,17 @@
    - Add Db engine on setting.py<br>
 
         ```python
-            'mongo':{
-                "ENGINE": "djongo",
-                "NAME": "local",
-                'HOST': '127.0.0.1',
-                'PORT': 27017,
-            }
+             DATABASES = {
+                .
+                .
+
+                'mongo':{
+                    "ENGINE": "djongo",
+                    "NAME": "local",
+                    'HOST': '127.0.0.1',
+                    'PORT': 27017,
+                }
+             }
         ```
     - Since it is not default Database we Have to add DATABASE_ROUTERS for this DB<br>
 
