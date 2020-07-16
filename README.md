@@ -12,7 +12,9 @@
 
    - install djongo for MongoDB engine <br>
 
-           `pip install djongo`
+          ```
+           pip install djongo
+           ```
 
    - Add Db engine on setting.py<br>
 
