@@ -101,10 +101,17 @@ DATABASES = {
         'OPTIONS': {
             'charset': 'utf8mb4',
         },
+    },
+
+    'mongo':{
+        "ENGINE": "djongo",
+        "NAME": "local",
+        'HOST': '127.0.0.1',
+        'PORT': 27017,
     }
 }
 
-DATABASE_ROUTERS = ['otherdbapp.router.OtherAppDB',]
+DATABASE_ROUTERS = ['otherdbapp.router.OtherAppDB',"mongoDBwork.router.MongoDBRouter"]
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators

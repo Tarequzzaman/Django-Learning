@@ -1,4 +1,45 @@
 <h2>MultipleDB</h2>
+1. Deault 
+
+2. another
+
+3. MongoDB
+   Steps: 
+
+   - For mongodb we have to create an app **mongoDBWork**
+   - install djongo for MongoDB engine 
+           ```
+              pip install djongo
+
+           ```
+   - Add Db engine on setting.py
+         ```python
+            .
+            .   
+            }
+            'mongo':{
+                "ENGINE": "djongo",
+                "NAME": "local",
+                'HOST': '127.0.0.1',
+                'PORT': 27017,
+            }
+
+         ```
+    - Since it is not default Database we Have to add DATABASE_ROUTERS for this DB
+        ```python 
+           DATABASE_ROUTERS = ['otherdbapp.router.OtherAppDB',"mongoDBwork.router.MongoDBRouter"]
+        ```
+        Description of DATABASE_ROUTERS:<br>
+        mongoDBwork : App Name
+        router : router.py file inser
+        MongoDBRouter: class name on the router.py file 
+        Please have a look on router.py file 
+
+
+
+
+
+
 
 <br>
 
@@ -69,6 +110,8 @@ class TestView(unittest.TestCase):
         self.assertEqual(response.status_code, 450)
 
 ```
+
+
 
 
 
