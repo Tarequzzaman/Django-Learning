@@ -31,8 +31,6 @@ def get_all_data(requests):
         event_data = PriceHistory.objects.filter()
         serializer = PriceHistorySerializer(event_data, many=True)
         return Response_data.success_response(serializer.data)
-
-
     except Exception as E:
         return Response_data.failure_response("Something Went Wrong", str(E))
 
