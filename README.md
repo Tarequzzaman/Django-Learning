@@ -38,7 +38,16 @@
         Please have a look on router.py file <br>
 
 
+    - Create a model name Posts <br>
 
+    - migration <br>
+        ```
+        python manage.py makemigrations mongoDBwork
+        ```
+    - Migrate DB<br>
+        ```
+        python manage.py migrate --database=mongo  
+        ```
 
 
 
