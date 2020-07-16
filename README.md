@@ -13,20 +13,21 @@
 
    - install djongo for MongoDB engine <br>
 
-           ```
-               pip install djongo
-           ```   
+        ```
+           pip install djongo
+        ```
+  
 
    - Add Db engine on setting.py<br>
 
-         ```python
+        ```python
             'mongo':{
                 "ENGINE": "djongo",
                 "NAME": "local",
                 'HOST': '127.0.0.1',
                 'PORT': 27017,
             }
-         ```
+        ```
     - Since it is not default Database we Have to add DATABASE_ROUTERS for this DB<br>
 
         ```python 
@@ -43,11 +44,11 @@
 
     - migration <br>
         ```
-        python manage.py makemigrations mongoDBwork
+            python manage.py makemigrations mongoDBwork
         ```
     - Migrate DB<br>
         ```
-        python manage.py migrate --database=mongo  
+            python manage.py migrate --database=mongo  
         ```
 
 
