@@ -1,6 +1,13 @@
 
 <html>
-
+<head>
+<style>
+.center {
+  text-align: center;
+  border: 3px solid green;
+}
+</style>
+</head>
 <body>
 <h2>MultipleDB</h2>
 
@@ -201,9 +208,9 @@ urlpatterns = [
 5. Call the api with username and password for getting token
 
 
-<center>
+<div class="center">
 <img src="https://i.imgur.com/uaubFEO.png" width="500" height="300">
-</center>
+</div>
 
 
 6. The token is generated now I want to authenticate my api using this credential.  Now I am moving My app historical_data/views.py. I import the necessary libraries for this authentcation
@@ -232,17 +239,17 @@ def get_all_data(requests):
 
 **With token request:**
 
-<center>
+<div class="center">
 <img src="https://i.imgur.com/5GlTYH3.png" width="500" height="300">
-</center>
+</div>
 
 **Without token request:**
 
-<center>
+<div class="center">
 <img src="https://i.imgur.com/jxlTxGB.png" width="500" height="300">
-</center>
+</div>
 
-
+The source for TokenAuthentication is found <a href="https://simpleisbetterthancomplex.com/tutorial/2018/11/22/how-to-implement-token-authentication-using-django-rest-framework.html">here</a>
 </body>
 </html>
 
