@@ -1,3 +1,7 @@
+
+<html>
+
+<body>
 <h2>MultipleDB</h2>
 <br>
 1. Deault <br>
@@ -5,7 +9,6 @@
 2. another <br>
 
 3. MongoDB<br>
-
    The source is found  <a href="https://bezkoder.com/django-mongodb-crud-rest-framework/">here</a>
    Steps: <br>
 
@@ -114,8 +117,6 @@ def get_user(requests):
 
 
 ```python
-
-
 class TestView(unittest.TestCase):
     def test_create_users(self):
         client = Client()
@@ -126,11 +127,88 @@ class TestView(unittest.TestCase):
         client = Client()
         response= client.get(reverse(get_user))
         self.assertEqual(response.status_code, 450)
+```
+
+<h2>TokenAuthentication: </h2> 
+
+I am trying to apply TokenAuthentication  on My an api  `http://127.0.0.1:8000/data/get_all_data/`.  The process is given here step by step:
+
+1.  Install django rest framework
+```
+    pip install djangorestframework
+
+```
+
+2. Adding **rest_framework**  **'rest_framework.authtoken'** on my `INSTALLED_APPS`  py and `DEFAULT_AUTHENTICATION_CLASSES` inside the testDjango/settings.py
+
+```
+INSTALLED_APPS = [
+   .
+   .
+   .
+    
+    'rest_framework',
+    'rest_framework.authtoken',  # <-- Here
+
+
+    .
+    .
+    .
+]
+```
+
+
+```
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  # <-- And here
+    ],
+}
+```
+
+3. Then Run this command 
+
+```
+python manage.py migrate
+python manage.py createsuperuser --username Tareq --email tareqcse12@gmail.com
 
 ```
 
 
 
+4. For getting the user (Tareq) token we need to add some code on testDjango/urls.py 
+
+
+
+
+```python
+
+from django.urls import path
+from rest_framework.authtoken.views import obtain_auth_token  # <-- Here
+
+
+urlpatterns = [
+  #url(r'^admin/', admin.site.urls),
+     .
+     .
+     .
+     path('api-token-auth/', obtain_auth_token, name='api_token_auth')
+]
+```
+
+5. Call the api with username and password 
+
+
+<center>
+<img src="https://i.imgur.com/uaubFEO.png">
+</center>
+
+
+
+
+
+</body>
+</html>
 
 
 
