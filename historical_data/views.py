@@ -4,13 +4,10 @@ from .serializer import  PriceHistorySerializer
 from django.core import serializers
 import json
 from django.utils.timezone import now
-
 from .response import Response_data
 from .models import PriceHistory, Users
-
-
-
-
+from rest_framework.permissions import IsAuthenticated 
+from rest_framework.decorators import api_view, permission_classes
 
 
 def insert_pice(requests):
@@ -26,6 +23,11 @@ def insert_pice(requests):
     }
     return JsonResponse(response)
 
+
+
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
 def get_all_data(requests):
     try:
         event_data = PriceHistory.objects.filter()

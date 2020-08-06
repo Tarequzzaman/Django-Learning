@@ -3,7 +3,9 @@
 
 <body>
 <h2>MultipleDB</h2>
-<br>
+
+
+
 1. Deault <br>
 
 2. another <br>
@@ -196,15 +198,49 @@ urlpatterns = [
 ]
 ```
 
-5. Call the api with username and password 
+5. Call the api with username and password for getting token
 
 
 <center>
-<img src="https://i.imgur.com/uaubFEO.png">
+<img src="https://i.imgur.com/uaubFEO.png" width="500" height="300">
 </center>
 
 
+6. The token is generated now I want to authenticate my api using this credential.  Now I am moving My app historical_data/views.py. I import the necessary libraries for this authentcation
 
+
+```python
+from rest_framework.permissions import IsAuthenticated 
+from rest_framework.decorators import api_view, permission_classes
+
+```
+```python 
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def get_all_data(requests):
+    try:
+        event_data = PriceHistory.objects.filter()
+        serializer = PriceHistorySerializer(event_data, many=True)
+        return Response_data.success_response(serializer.data)
+    except Exception as E:
+        return Response_data.failure_response("Something Went Wrong", str(E))
+
+```
+
+
+7. The Authentication is added now I want to test it with Token and Without Token 
+
+**With token request:**
+
+<center>
+<img src="https://i.imgur.com/5GlTYH3.png" width="500" height="300">
+</center>
+
+**Without token request:**
+
+<center>
+<img src="https://i.imgur.com/jxlTxGB.png" width="500" height="300">
+</center>
 
 
 </body>
