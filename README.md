@@ -1,13 +1,6 @@
 
 <html>
-<head>
-<style>
-.center {
-  text-align: center;
-  border: 3px solid green;
-}
-</style>
-</head>
+
 <body>
 <h2>MultipleDB</h2>
 
@@ -208,7 +201,7 @@ urlpatterns = [
 5. Call the api with username and password for getting token
 
 
-<div class="center">
+<div style="text-align:center">
 <img src="https://i.imgur.com/uaubFEO.png" width="500" height="300">
 </div>
 
@@ -239,13 +232,13 @@ def get_all_data(requests):
 
 **With token request:**
 
-<div class="center">
+<div style="text-align:center">
 <img src="https://i.imgur.com/5GlTYH3.png" width="500" height="300">
 </div>
 
 **Without token request:**
 
-<div class="center">
+<div style="text-align:center">
 <img src="https://i.imgur.com/jxlTxGB.png" width="500" height="300">
 </div>
 
