@@ -2,11 +2,34 @@
 <html>
 
 <body>
+<h2>Installation Process: </h2>
+
+1. 
+---
+
 <h2>MultipleDB</h2>
 
-
-
 1. Deault <br>
+In my project I am adding `mysql` as `default` DB. Where db_name is `testing`. You dont need to `DATABASE_ROUTERS` for `default` DB
+
+    ``` python
+     'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'testing',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': '127.0.0.1',   # Or an IP Address that your DB is hosted on
+        'PORT': 3306,
+        'OPTIONS': {
+            'charset': 'utf8mb4',
+        },
+        'TEST': {
+            'CHARSET': 'utf8mb4',
+            'COLLATION': 'utf8mb4_unicode_ci',
+        }
+    }, 
+   ```
+
 
 2. another <br>
 
@@ -30,48 +53,53 @@
                 .
                 .
 
-                'mongo':{
-                    "ENGINE": "djongo",
-                    "NAME": "local",
-                    'HOST': '127.0.0.1',
-                    'PORT': 27017,
+                'mongo':{  
+                    'ENGINE':   'djongo',
+                    'NAME':     'local', # name of the database 
+                    'CLIENT': {
+                        'host': '127.0.0.1',
+                        'port': 27017,
+                        'username': 'user_name',
+                        'password': 'password',
+                        'authSource': 'auth db name'
+                     }
                 }
              }
         ```
-    - Since it is not default Database we Have to add DATABASE_ROUTERS for this DB<br>
+    - Since it is not default Database we Have to add DATABASE_ROUTERS for this DB to your `setting.py` file<br>
 
         ```python 
            DATABASE_ROUTERS = ['otherdbapp.router.OtherAppDB',"mongoDBwork.router.MongoDBRouter"]
         ```
         Description of DATABASE_ROUTERS:<br>
-        mongoDBwork : App Name<br>
-        router : router.py file inser<br>
-        MongoDBRouter: class name on the router.py file <br>
-        Please have a look on router.py file <br>
+        - mongoDBwork : App Name<br>
+        - router : router.py file inser<br>
+        - MongoDBRouter: class name on the `router.py` file <br>
+        - Please have a look on `router.py` file <br>
 
 
     - Create a model name Posts <br>
 
     - migration <br>
         ```
-            python manage.py makemigrations mongoDBwork
+      python manage.py makemigrations mongoDBwork
         ```
     - Migrate DB<br>
+        ```shell
+        python manage.py migrate --database=mongo  
         ```
-            python manage.py migrate --database=mongo  
-        ```
 
 
-
+The database section contain 3 DB connected. Basically the second DB is also `Mysql`. Going forward I added `postgresql` as Second DB
 
 <br>
-
-
 <br>
 
 
 <h2>Testcase: </h2>
 
+
+---
 <p>Unittest is very importent for CI/CD. Whenever you wirte a code you need to initaiate test case for this code</p>
 <br>
 
@@ -132,6 +160,8 @@ class TestView(unittest.TestCase):
 ```
 
 <h2>TokenAuthentication: </h2> 
+
+---
 
 I am trying to apply TokenAuthentication  on My an api  `http://127.0.0.1:8000/data/get_all_data/`.  The process is given here step by step:
 

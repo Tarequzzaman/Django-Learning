@@ -113,13 +113,17 @@ DATABASES = {
         'OPTIONS': {
             'charset': 'utf8mb4',
         },
-    },
-
-    'mongo':{
-        "ENGINE": "djongo",
-        "NAME": "local",
-        'HOST': '127.0.0.1',
-        'PORT': 27017,
+    }, 
+    'mongo':{  
+        'ENGINE':   'djongo',
+        'NAME':     'local', # name of the database 
+        'CLIENT': {
+            'host': '127.0.0.1',
+            'port': 27017,
+            # 'username': '{user_name }',
+            # 'password': 'password',
+            # 'authSource': 'auth db name'
+        }
     }
 }
 
