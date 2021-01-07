@@ -4,7 +4,34 @@
 <body>
 <h2>Installation Process: </h2>
 
-1. 
+1.  Need to install mysql client the [docs](https://pypi.org/project/mysqlclient/) is here 
+2. Need MongoDB install 
+3. Install rabbitmq server 
+
+    ```
+    apt-get install rabbitmq-server
+    running: 
+    rabbitmq-server
+    ```
+    MacOS
+    ```
+    brew install rabbitmq
+    export PATH=$PATH:/usr/local/sbin
+     
+    running: 
+    rabbitmq-server
+    or 
+    brew service start rabbitmq
+    ```
+
+   
+4. install requirements from the requirements.txt file 
+    ```
+    pip install -r requirements.txt
+    ```
+     
+   
+      
 ---
 
 <h2>MultipleDB</h2>
