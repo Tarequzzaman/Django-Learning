@@ -127,6 +127,23 @@ DATABASES = {
     }
 }
 
+CELERY_BROKER_URL = 'amqp://localhost'
+# CELERY_RESULT_BACKEND = 'amqp://127.0.0.1:5672'
+
+# CELERY_IMPORTS = (
+#     'celory_task.tasks.sample_task_1'
+# )
+
+
+# for security reasons, mention the list of accepted content-types (in this case json)
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+
+CELERY_TIMEZONE = 'Europe/Berlin'
+
+
+
 DATABASE_ROUTERS = ['otherdbapp.router.OtherAppDB',"mongoDBwork.router.MongoDBRouter"]
 
 # Password validation

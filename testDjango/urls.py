@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.urls import path
-from rest_framework.authtoken.views import obtain_auth_token  # <-- Here
+from rest_framework.authtoken.views import obtain_auth_token 
 
 
 urlpatterns = [
@@ -24,5 +24,6 @@ urlpatterns = [
       url(r'^data/', include('historical_data.urls')),
       url(r'^otherdb/', include('otherdbapp.urls')),
       url(r'mongoDB/', include('mongoDBwork.urls')),
+      url(r'celery/', include('celory_task.urls')),
       path('api-token-auth/', obtain_auth_token, name='api_token_auth')
 ]
